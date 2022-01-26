@@ -1,5 +1,3 @@
-<!-- Attraverso l’utilizzo di axios: al caricamento della pagina axios chiederà,
-attraverso una chiamata api, i dischi a php e li stamperà attraverso vue. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +9,6 @@ attraverso una chiamata api, i dischi a php e li stamperà attraverso vue. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500;1,700&display=swap" rel="stylesheet"> 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 </head>
 <body>
 <?php require __DIR__ . '/database.php'; ?>
@@ -22,7 +18,7 @@ attraverso una chiamata api, i dischi a php e li stamperà attraverso vue. -->
         </div>
     </header>
     <main>
-        <div id="root" class="container">
+        <div class="container">
             <div class="select_menu">
                 <div>
                     <select @change="$emit('searchDone', selectValue)" v-model="selectValue" name="" id="">
@@ -35,20 +31,20 @@ attraverso una chiamata api, i dischi a php e li stamperà attraverso vue. -->
                 </div>
             </div>
             <div class="discs">
-                    <a v-for="(card, index) in cards" :key="index" href="" class="card">
+                <?php foreach($cards as $card) { ?>
+                    <a href="" class="card">
                         <div class="music_image">
-                            <img :src="card.poster" :alt="card.title">
+                            <img <?php echo "src=\"" . $card['poster'] . "\"";?> alt="">
                         </div>
-                        <h2>{{ card.title }}</h2>
+                        <h2><?php echo $card['title']; ?></h2>
                         <div class="info">
-                            <span>{{ card.author }}</span>
-                            <span>{{ card.year }}</span>
+                            <span><?php echo $card['author']; ?></span>
+                            <span><?php echo $card['year']; ?></span>
                         </div>
                     </a>
+                <?php }?>
             </div>
         </div>
     </main>
-    
-    <script src="js/script.js"></script>
 </body>
 </html>
