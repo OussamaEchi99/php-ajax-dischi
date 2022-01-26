@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* HEADER */
+.logo_header{
+    height: 70px;
+    background-color: #2e3a46;
+    display: flex;
+    align-content: center;
+}
+
+.logo_header img{
+    width: 2%;
+    margin: 0 20px;
+}
+
+/* MAIN */
+main{
+    background-color: #1e2d3b;
+    height: calc(100vh - 70px);
+}
+
+.container{
+    width: 60%;
+    margin: auto;
+}
+
+.select_menu{
+    padding: 20px 0;
+}
+
+.discs{
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.card{
+    width: calc(( 100% / 5 ) - 40px);
+    background-color: #2e3a46;
+    color: white;
+    padding: 20px;
+    margin: 10px 20px;
+    text-align: center;
+}
+
+.card h2{
+    margin: 15px 0;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.card .info{
+    color: gray;
+    display: flex;
+    flex-direction: column;
+}
